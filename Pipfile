@@ -7,6 +7,8 @@ name = "pypi"
 wagtail = ">=2.16,<2.17"
 Pillow = "*"
 Django = "<4.1,>=4.0"
+django-extensions = "*"
+wagtailmenus = "*"
 
 [dev-packages]
 autopep8 = "*"

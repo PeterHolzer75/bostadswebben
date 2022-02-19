@@ -27,8 +27,11 @@ INSTALLED_APPS = [
     'home',
     'search',
     'site_settings',
+    # 'menus',
+    'wagtailmenus',
 
     'wagtail.contrib.forms',
+    'wagtail.contrib.modeladmin',  # Don't repeat if it's there already
     'wagtail.contrib.redirects',
     # https://www.youtube.com/watch?v=jsan9SclzpI&list=PLMQHMcNi6ocsS8Bfnuy_IDgJ4bHRRrvub&index=14
     'wagtail.contrib.settings',
@@ -81,6 +84,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'wagtail.contrib.settings.context_processors.settings',
+                'wagtailmenus.context_processors.wagtailmenus',
 
             ],
         },
@@ -88,6 +92,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'bostadswebben.wsgi.application'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # Database
