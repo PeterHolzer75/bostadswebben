@@ -1,0 +1,4 @@
+Bankid inloggning:
+https://github.com/fiso/smooth-bankid
+
+

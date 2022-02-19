@@ -9,6 +9,7 @@ Pillow = "*"
 Django = "<4.1,>=4.0"
 
 [dev-packages]
+autopep8 = "*"
 
 [requires]
 python_version = "3.10"
