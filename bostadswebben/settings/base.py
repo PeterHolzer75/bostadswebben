@@ -29,7 +29,6 @@ INSTALLED_APPS = [
     'site_settings',
     # 'menus',
     'wagtailmenus',
-
     'wagtail.contrib.forms',
     'wagtail.contrib.modeladmin',  # Don't repeat if it's there already
     'wagtail.contrib.redirects',

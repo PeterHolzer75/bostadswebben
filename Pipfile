@@ -9,6 +9,7 @@ Pillow = "*"
 Django = "<4.1,>=4.0"
 django-extensions = "*"
 wagtailmenus = "*"
+django-debug-toolbar = "*"
 
 [dev-packages]
 autopep8 = "*"

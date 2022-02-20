@@ -1,4 +1,30 @@
 <!-- Site Settiings -->
-{% if settings.site_settings.SocialMediaSettings.facebook %}
-{{settings.site_settings.SocialMediaSettings.facebook }}
-{% endif %}
+<footer>
+    <hr>
+    <div class="d-flex">
+        {% if settings.site_settings.SocialMediaSettings.facebook %}
+        <div class="social-links-icons">
+            <a href="{{settings.site_settings.SocialMediaSettings.facebook }}"><i class="bi bi-facebook"></i></a>
+        </div>
+        {% endif %}
+
+        {% if settings.site_settings.SocialMediaSettings.instagram %}
+        <div class="social-links-icons">
+            <a href="{{settings.site_settings.SocialMediaSettings.instagram }}"><i class="bi bi-instagram"></i></a>
+        </div>
+        {% endif %}
+
+        {% if settings.site_settings.SocialMediaSettings.linkedin %}
+        <div class="social-links-icons">
+            <a href="{{settings.site_settings.SocialMediaSettings.linkedin }}"><i class="bi bi-linkedin"></i></a>
+        </div>
+        {% endif %}
+
+        {% if settings.site_settings.SocialMediaSettings.youtube %}
+        <div class="social-links-icons">
+            <a href="{{settings.site_settings.SocialMediaSettings.youtube }}"><i class="bi bi-youtube"></i></a>
+        </div>
+        {% endif %}
+    </div>
+
+</footer>
