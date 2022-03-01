@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+<!-- {% block body_class %}template-homepage{% endblock %} -->
+{% block extra_css %}
+{% endblock extra_css %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            {% for loop_cycle in self.carousel_images.all %}
+            {% image loop_cycle.carousel_image fill-1920x300 as img %}
+
+            <div class="carousel-item{% if forloop.counter == 1 %} active{% endif %}">
+                <img src="{{img.url}}" class="d-block w-100" alt="{{img.alt}}">
+            </div>
+
+            <!-- <div class="carousel-caption d-none d-lg-block"> -->
+            <div class="carousel-caption d-none d-lg-block">
+                <h1>HEADER</h1>
+                <!-- <h1>{{loop_cycle.image_title}}</h1> -->
+                <!-- <p>{{loop_cycle.image_subtitle}}</p> -->
+            </div>
+
+
+            {% endfor %}
+        </div>
+    </div>
+    <!--     
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button> -->
+
+</div>
+
+
+<!-- {{self.banner_image.url}} -->
+
+<!-- {% image self.banner_image original as img %} -->
+
+<p class="h3">{{self.banner_title}}</p>
+<!-- <img src="{{img.url}}" alt=""> -->
+{{self.banner_subtitle|richtext}} {% if self.banner_cta %} <a class="btn btn-primary btn-lg" href="#">@todo</a>
+{% endif %}
+
+</div>
+{% endblock content %}
+{% block extra_js %}
+<script>
+    $(document).ready(function () {
+        $("#carouselExampleCaptions").carousel({
+            interval: false
+        });
+    });
+</script>
+{% endblock %}

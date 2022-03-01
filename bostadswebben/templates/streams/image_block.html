@@ -1,0 +1,8 @@
+{% load wagtailimages_tags %}
+<!-- Display the image scaled to a width of 400 pixels: -->
+
+
+<div class="container mb-4">
+    {% image self.image width-800 as img %}
+    <img src="{{ img.url }}" alt="{{ img.alt }}" class="card-img-left" />
+</div>

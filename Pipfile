@@ -10,6 +10,9 @@ Django = "<4.1,>=4.0"
 django-extensions = "*"
 wagtailmenus = "*"
 django-debug-toolbar = "*"
+wagtail-blocks = "*"
+wagtailgeowidget = "*"
+python-decouple = "*"
 
 [dev-packages]
 autopep8 = "*"

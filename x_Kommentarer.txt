@@ -1,7 +1,10 @@
 Bankid inloggning:
 https://github.com/fiso/smooth-bankid
 
+Wagtail blocks
+https://github.com/ibrahimawadhamid/wagtail_blocks/tree/master/docs/showcase/screenshots
 
 
 
-
+Routable page in Wagtail
+https://www.youtube.com/watch?v=W2oHKiAYl3U&list=PLMQHMcNi6ocsS8Bfnuy_IDgJ4bHRRrvub&index=17

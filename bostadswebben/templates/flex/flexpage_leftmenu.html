@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags menu_tags %}
+
+<!-- {% block body_class %}template-homepage{% endblock %} -->
+
+{% block content %}
+<div class="container">
+</div>
+<div class="container d-flex">
+
+    <div class="col-4 border-green left-side">
+        <!-- Meny på vänster sida -->
+        {% flat_menu 'leftside-menu' max_levels=2 show_menu_heading=True fall_back_to_default_site_menus=True %}
+
+        <ul>
+            {% for item in menu_items %}
+            <li class="{{ item.active_class }}">
+                <a href="{{ item.href }}">{{ item.text }}</a>
+                {% if item.sub_menu %}
+                <ul class="sub-menu">
+                    {% for sub_item in item.sub_menu.items %}
+                    <li class="{{ sub_item.active_class }}"><a href="{{ sub_item.href }}">{{ sub_item.text }}</a></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+
+
+
+
+    </div>
+    <div class="col-8  border-green right-side p-2">
+        {% if self.title %}
+        <p class="h1 ps-2 pb-2">{{ self.title }}</p>
+        <!-- <h1 class="display-4">{{ self.title }}</h1> -->
+        {% endif %}
+        {% if self.subtitle %}
+        <div class="lead">{{ self.subtitle }}</div>
+        {% endif %}
+
+        {% for block in page.content %}
+        {% include_block block %}
+        {% endfor %}
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}

@@ -1,3 +1,14 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+h1 {
+  font-size: 2rem !important;
+  font-weight: 600;
+  color: #222222;
+}
+
 .social-links-icons {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -19,5 +30,51 @@
   font-size: 1.2rem;
   color: #4e4e4e;
   vertical-align: middle;
+}
+
+.smalltext {
+  display: none;
+  color: white;
+  background-color: #990000;
+  font-size: 0.7rem;
+  border-radius: 3px;
+}
+
+.template-homepage {
+  margin: 0;
+  padding: 0;
+}
+
+.border-green {
+  border: green 1px solid;
+}
+
+.border-blue {
+  border: #073ed4 1px solid;
+}
+
+.border-red {
+  border: red 1px solid;
+}
+
+.gallery {
+  padding: 80px 0px;
+}
+
+img {
+  max-width: 100%;
+}
+
+.gallery img {
+  background: #fff;
+  padding: 15px;
+  width: 100%;
+  -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+#gallery-popup .modal-img {
+  width: 100%;
 }
 /*# sourceMappingURL=bostadswebben.css.map */

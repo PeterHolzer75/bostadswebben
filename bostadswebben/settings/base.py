@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from decouple import config
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
@@ -27,7 +28,16 @@ INSTALLED_APPS = [
     'home',
     'search',
     'site_settings',
+    'flex',
+    'streams',
+    'wagtailfontawesome',
+    'wagtail_blocks',
+    'subscribers',
+    #  news -https://www.youtube.com/watch?v=GyULF8HzreI&list=PLMQHMcNi6ocsS8Bfnuy_IDgJ4bHRRrvub&index=12
+    'news',
+
     # 'menus',
+    'contact',
     'wagtailmenus',
     'wagtail.contrib.forms',
     'wagtail.contrib.modeladmin',  # Don't repeat if it's there already
@@ -154,8 +164,8 @@ STATICFILES_DIRS = [
 # ManifestStaticFilesStorage is recommended in production, to prevent outdated
 # JavaScript / CSS assets being served from cache (e.g. after a Wagtail upgrade).
 # See https://docs.djangoproject.com/en/4.0/ref/contrib/staticfiles/#manifeststaticfilesstorage
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
@@ -178,3 +188,27 @@ WAGTAILSEARCH_BACKENDS = {
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
+
+# ======================================================================
+# WAGTAILGEOWIDGET
+# ======================================================================
+
+GEO_WIDGET_DEFAULT_LOCATION = config("GEO_WIDGET_DEFAULT_LOCATION", {
+                                     "lat": 59.3293, "lng": 18.0686})
+
+GEO_WIDGET_EMPTY_LOCATION = config("GEO_WIDGET_EMPTY_LOCATION", True)
+GEO_WIDGET_ZOOM = config("GEO_WIDGET_ZOOM", 7)
+
+GEO_WIDGET_LEAFLET_TILE_LAYER = config(
+    "GEO_WIDGET_LEAFLET_TILE_LAYER", "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
+GEO_WIDGET_LEAFLET_TILE_LAYER_OPTIONS = config(
+    "GEO_WIDGET_LEAFLET_TILE_LAYER_OPTIONS",
+    {
+        "attribution": '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    },
+)
+
+GOOGLE_MAPS_V3_APIKEY = config("GOOGLE_MAPS_V3_APIKEY", None)
+GOOGLE_MAPS_V3_APIKEY_CALLBACK = config("GOOGLE_MAPS_V3_APIKEY_CALLBACK", None)
+GOOGLE_MAPS_V3_LANGUAGE = config("GOOGLE_MAPS_V3_LANGUAGE", "en")
+MAPBOX_ACCESS_TOKEN = config("MAPBOX_ACCESS_TOKEN", None)

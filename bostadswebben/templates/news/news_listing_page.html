@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+<!-- {% block body_class %}template-homepage{% endblock %} -->
+
+{% block content %}
+
+<div class="container">
+    {% for post in news %}
+    <div class="row pb-2">
+        <div class="col-sm-3">
+            {% image post.news_image fill-100x100 as news_img %}
+            <a href="{{ post.url }}">
+                <img src="{{ news_img.url }}" alt="{{news_img.alt}}">
+            </a>
+        </div>
+
+        <div class="col-sm-9">
+            <a href="{{ post.url}}">
+                {{ post.title}}
+            </a>
+            <a href="{{ post.url}}">
+                {{ post.ingress}}
+            </a>
+
+        </div>
+
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

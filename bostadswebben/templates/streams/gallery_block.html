@@ -1,0 +1,50 @@
+{% load wagtailimages_tags %}
+<div class="container gallery">
+    <p class="fw-light text-center text-lg-start mt-4 mb-0">{{self.title}}</p>
+    <!-- <hr class="mt-2 mb-5"> -->
+    <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-3">
+
+        {% for card in self.gallery %}
+        {% image card.image fill-200x230 as img %}
+        <div class="col">
+            <img src="{{ img.url }}" class="gallery-item shadow-sm" alt="{{ img.alt }}">
+            <p>{{card.title}}</p>
+        </div>
+        {% endfor %}
+
+
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="gallery-popup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img src="images/1.jpg" class="modal-img" alt="Modal Image">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% block extra_js %}
+<script type="text/javascript">
+    document.addEventListener("click", function (e) {
+        if (e.target.classList.contains("gallery-item")) {
+            const src = e.target.getAttribute("src");
+            document.querySelector(".modal-img").src = src;
+            const myModal = new bootstrap.Modal(document.getElementById('gallery-popup'));
+            myModal.show();
+        }
+    })
+</script>
+{% endblock %}
+
+</body>
+
+</html>
